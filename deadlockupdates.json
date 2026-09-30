@@ -9,6 +9,16 @@
         "SkipOnFailure": false
     },
     {
+        "UpdateStageName": "Server.cfg Template File Download",
+        "UpdateSourcePlatform": "All",
+        "UpdateSource": "FetchURL",
+        "UpdateSourceData": "https://raw.githubusercontent.com/etwodev/deadlock-amp/main/deadlockserver.cfg",
+        "UpdateSourceArgs": "AMP_server.cfg",
+        "UpdateSourceTarget": "{{$FullRootDir}}",
+        "OverwriteExistingFiles": true,
+        "SkipOnFailure": false
+    },
+    {
         "UpdateStageName": "Steamworks SDK Redist Download",
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "SteamCMD",

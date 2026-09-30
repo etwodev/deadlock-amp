@@ -234,7 +234,7 @@
         "DisplayName": "Additional Console Variables",
         "Category": "Deadlock:stadia_controller",
         "Subcategory": "Server:dns:1",
-        "Description": "Specifies additional console variables (anything that begins with a +) that are not otherwise set by AMP. Use with care",
+        "Description": "Specifies additional console variables (anything that begins with a +) that are not otherwise set by AMP. These are only applied on the command line, so cheat-protected variables here are reset during startup. Use with care",
         "Keywords": "custom,variables,cvars,convars",
         "FieldName": "CustomConVars",
         "InputType": "text",

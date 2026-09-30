@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "ConfigFile": "game/citadel/cfg/server.cfg",
+        "AutoMap": true,
+        "ConfigType": "template",
+        "ConfigFileTemplate": "deadlock/AMP_server.cfg"
+    }
+]

@@ -61,8 +61,9 @@ If your provider has its own firewall or security group, open the ports there as
 
 1. Click **Update**.
 2. AMP will ask for your Steam username and password, then a Steam Guard code if the account has it enabled.
-3. The update runs four stages:
+3. The update runs five stages:
    - **SteamCMD Download:** the Windows Deadlock files (about 38 GB; this takes a while).
+   - **Server.cfg Template File Download:** fetches `deadlockserver.cfg` from this repository, which AMP fills in with your settings.
    - **Steamworks SDK Redist Download:** Valve's Windows `steamclient64.dll`, which the server needs to register with Steam.
    - **Proton GE Download:** the latest Proton GE release, unless a specific version is set under **Updates → Runtime Configuration**.
    - **Copy Steamworks Client Into Proton Prefix:** places `steamclient64.dll` and its dependencies where the game looks for them (`C:\Program Files (x86)\Steam\`). Without a Steam client installed, Proton cannot provide this file itself.
@@ -85,6 +86,10 @@ Settings are under **Configuration → Deadlock**, split into tabs:
 | Logging | Server log files |
 
 Almost every setting defaults to **Game default** (or is left blank), and is only added to the command line once you change it.
+
+Settings are applied twice. They go on the command line, and AMP also writes every dropdown and number setting into `game/citadel/cfg/server.cfg` each time the server starts. Deadlock runs that file after the map loads. This matters because `sv_cheats` set on the command line is turned off during startup, which resets every cheat-protected setting; `server.cfg` turns them back on. Text settings (server name, passwords, log folder, bot heroes) only go on the command line, since none of them are cheat-protected.
+
+Do not edit `server.cfg` by hand, because AMP overwrites it on every start. **Additional Console Variables** are only applied on the command line, so cheat-protected variables entered there are reset during startup.
 
 Settings marked **Requires Enable Cheats** need **Enable Cheats** turned on; the game ignores them otherwise. Enabling cheats lets **every player** use cheat commands.
 
@@ -133,7 +138,7 @@ The server's console output does not appear in AMP under Proton. It is written t
 | Update fails at SteamCMD | The Steam account must own Deadlock. Re-enter credentials and the Steam Guard code |
 | Server crashes shortly after start | Confirm `vm.max_map_count` is set on the host (`sysctl vm.max_map_count`) |
 | Server never becomes ready | Check the TCP port is open and nothing else is using it. Look at the instance log for Proton errors |
-| Troopers still spawn | Enable Cheats must be ticked. Check the value over RCON as shown above |
+| Troopers still spawn | Enable Cheats must be ticked. Check `sv_cheats` and `citadel_trooper_spawn_enabled` over RCON. If both are wrong, confirm `game/citadel/cfg/server.cfg` exists and contains your settings; run **Update** to fetch the template if it does not |
 | Proton issues after an update | Pin a known-good version, e.g. `GE-Proton9-5`, under **Updates → Runtime Configuration** |
 
 ## Files
@@ -144,5 +149,6 @@ The server's console output does not appear in AMP under Proton. It is written t
 | `deadlockconfig.json` | Settings shown in the AMP UI |
 | `deadlockports.json` | Port definitions |
 | `deadlockupdates.json` | Update stages (SteamCMD, Proton GE) |
-| `deadlockmetaconfig.json` | Config file mappings (none currently) |
+| `deadlockmetaconfig.json` | Tells AMP to render `deadlockserver.cfg` into the game's `server.cfg` |
+| `deadlockserver.cfg` | Template for `server.cfg`, one line per setting |
 | `manifest.json` | Repository manifest AMP reads when fetching templates |
