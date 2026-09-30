@@ -104,8 +104,11 @@ citadel_trooper_spawn_enabled
 
 ## Troubleshooting
 
+The server's console output does not appear in AMP under Proton. It is written to `deadlock/1422450/game/citadel/console.log` inside the instance folder instead.
+
 | Symptom | Things to check |
 |---|---|
+| Stuck on "Starting" | AMP waits for RCON to connect. Check `console.log` (above) and that a `deadlock.exe` process is running |
 | Update fails at SteamCMD | The Steam account must own Deadlock. Re-enter credentials and the Steam Guard code |
 | Server crashes shortly after start | Confirm `vm.max_map_count` is set on the host (`sysctl vm.max_map_count`) |
 | Server never becomes ready | Check the TCP port is open and nothing else is using it. Look at the instance log for Proton errors |
