@@ -26,11 +26,11 @@ echo 'vm.max_map_count=1048576' | sudo tee /etc/sysctl.d/99-deadlock.conf
 sudo sysctl --system
 ```
 
-Open the game port (default `27067`) for both protocols. UDP carries game traffic and TCP carries RCON:
+Open the game port (default `27015`) for both protocols. UDP carries game traffic and TCP carries RCON:
 
 ```bash
-sudo ufw allow 27067/udp
-sudo ufw allow 27067/tcp
+sudo ufw allow 27015/udp
+sudo ufw allow 27015/tcp
 ```
 
 If you enable SourceTV, also open its port (default `27020`, UDP):
@@ -111,7 +111,7 @@ citadel_respawn_boss_shrines
 2. Players open the in-game console and run:
    ```
    password <server password>
-   connect <server ip>:27067
+   connect <server ip>:27015
    ```
    Skip the `password` line if no password is set.
 
