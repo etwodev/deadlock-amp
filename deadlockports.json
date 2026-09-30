@@ -1,0 +1,9 @@
+[
+    {
+        "Protocol": "Both",
+        "Port": 27067,
+        "Ref": "MainGamePort",
+        "Name": "Game and RCON Port",
+        "Description": "Port for game (UDP) and RCON (TCP) traffic"
+    }
+]

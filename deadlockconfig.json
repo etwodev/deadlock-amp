@@ -1,0 +1,131 @@
+[
+    {
+        "DisplayName": "Server Name",
+        "Category": "Deadlock:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Sets the name of the server",
+        "Keywords": "server,name,hostname",
+        "FieldName": "hostname",
+        "InputType": "text",
+        "ParamFieldName": "hostname",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "AMP Deadlock Server",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Server Password",
+        "Category": "Deadlock:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Password players must supply to join. Leave empty for no password",
+        "Keywords": "server,password,sv_password",
+        "FieldName": "sv_password",
+        "InputType": "Password",
+        "ParamFieldName": "sv_password",
+        "IncludeInCommandLine": true,
+        "SkipIfEmpty": true,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "RCON Password",
+        "Category": "Deadlock:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "See the Security and Privacy menu for configurable options for the server's RCON",
+        "Keywords": "rcon,password,rcon_password",
+        "FieldName": "$RemoteAdminPassword",
+        "InputType": "hidden",
+        "IsFlagArgument": false,
+        "ParamFieldName": "rcon_password",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Enable Cheats",
+        "Category": "Deadlock:stadia_controller",
+        "Subcategory": "Gameplay:sports_esports:2",
+        "Description": "Enables sv_cheats. Required for the trooper and neutral spawn settings below to take effect. Note that this lets every player use cheat commands",
+        "Keywords": "cheats,sv_cheats",
+        "FieldName": "sv_cheats",
+        "InputType": "checkbox",
+        "ParamFieldName": "sv_cheats",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Spawn Troopers",
+        "Category": "Deadlock:stadia_controller",
+        "Subcategory": "Gameplay:sports_esports:2",
+        "Description": "Whether lane troopers (creeps) spawn. Requires Enable Cheats",
+        "Keywords": "troopers,creeps,minions,citadel_trooper_spawn_enabled",
+        "FieldName": "citadel_trooper_spawn_enabled",
+        "InputType": "checkbox",
+        "ParamFieldName": "citadel_trooper_spawn_enabled",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Spawn Neutrals",
+        "Category": "Deadlock:stadia_controller",
+        "Subcategory": "Gameplay:sports_esports:2",
+        "Description": "Whether neutral jungle camps spawn. Requires Enable Cheats",
+        "Keywords": "neutrals,jungle,camps,citadel_neutral_spawn_enabled",
+        "FieldName": "citadel_neutral_spawn_enabled",
+        "InputType": "checkbox",
+        "ParamFieldName": "citadel_neutral_spawn_enabled",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Additional Console Variables",
+        "Category": "Deadlock:stadia_controller",
+        "Subcategory": "Gameplay:sports_esports:2",
+        "Description": "Specifies additional console variables (anything that begins with a +) that are not otherwise set by AMP. Use with care",
+        "Keywords": "custom,variables,cvars,convars",
+        "FieldName": "CustomConVars",
+        "InputType": "text",
+        "ParamFieldName": "CustomConVars",
+        "DefaultValue": "",
+        "Placeholder": "+citadel_hero_testing_enabled true",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Map",
+        "Category": "Deadlock:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Sets the map to start the server with",
+        "Keywords": "map",
+        "FieldName": "map",
+        "InputType": "enum",
+        "ParamFieldName": "map",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "dl_midtown",
+        "EnumValues": {
+            "dl_midtown": "Midtown (default)",
+            "dl_hideout": "Hideout"
+        }
+    },
+    {
+        "DisplayName": "Proton GE Release Version (Linux)",
+        "Category": "Updates",
+        "Subcategory": "Runtime Configuration:build:3",
+        "Description": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-5",
+        "Keywords": "proton,release,version",
+        "FieldName": "SpecificReleaseVersion",
+        "InputType": "text",
+        "ParamFieldName": "SpecificReleaseVersion",
+        "DefaultValue": "",
+        "Placeholder": "GE-Proton9-5",
+        "EnumValues": {}
+    }
+]
