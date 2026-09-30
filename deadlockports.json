@@ -5,5 +5,12 @@
         "Ref": "MainGamePort",
         "Name": "Game and RCON Port",
         "Description": "Port for game (UDP) and RCON (TCP) traffic"
+    },
+    {
+        "Protocol": "UDP",
+        "Port": 27020,
+        "Ref": "SourceTVPort",
+        "Name": "SourceTV Port",
+        "Description": "Port for SourceTV spectator traffic (only used when SourceTV is enabled)"
     }
 ]
